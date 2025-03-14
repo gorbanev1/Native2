@@ -7,5 +7,9 @@ export function mult(a:number, b:number){
 
 
  export function splitIntoWords( sentence: string){
-    return sentence
+    return sentence.toLowerCase().split(" ")
+        .filter(w=>w!=="")
+        .map(w=>w.replace("!",""))
 }
+console.log(splitIntoWords("hello pidor! ssdfsd"))
+console.log("pidor".replace("d",''))
