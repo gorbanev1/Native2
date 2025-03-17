@@ -1,8 +1,10 @@
 import {mult, splitIntoWords, sum} from "./01";
-import { expect, test } from 'vitest'
+import {beforeEach, expect, test } from 'vitest'
 let a= 1
 let b= 1
 let c= 2
+
+
 beforeEach(()=>{
     a=1
     b=2
