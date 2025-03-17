@@ -1,10 +1,17 @@
 import {mult, splitIntoWords, sum} from "./01";
 import { expect, test } from 'vitest'
+let a= 1
+let b= 1
+let c= 2
+beforeEach(()=>{
+    a=1
+    b=2
+    c=3
+})
+
 test("sum should be correct", ()=>{
 
-    const a= 1
-    const b= 1
-    const c= 2
+
 
     const  result1 = sum(a, b)
     const  result2 = sum(a, c)
