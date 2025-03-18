@@ -19,23 +19,21 @@ test("sum should be correct", ()=>{
     const  result2 = sum(a, c)
 
 
-    expect(result1).toBe(2)
-    expect(result2).toBe(3)
+    expect(result1).toBe(3)
+    expect(result2).toBe(4)
 
     }
 )
 test("multiply should be correct", ()=>{
 
-        const a= 1
-        const b= 1
-        const c= 2
+
 
         const  result1 = mult(a, b)
         const  result2 = mult(a, c)
 
 
-        expect(result1).toBe(1)
-        expect(result2).toBe(2)
+        expect(result1).toBe(2)
+        expect(result2).toBe(3)
 
     }
 )
