@@ -25,5 +25,5 @@ export function addMoneyToBudget(building:GovernmentBuildingType, plusBudget:num
     building.budget+=plusBudget
 }
 export function demolishHouseOnTheStreet(city:CityType, street:string){
-    city.houses.filter((h)=>h.address.street.title!==street)
+   city.houses= city.houses.filter((h)=>h.address.street.title!==street)
 }

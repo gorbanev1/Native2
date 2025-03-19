@@ -1,6 +1,6 @@
 import {beforeEach, expect, test} from 'vitest'
 import {AddressType, CityType} from "./02_02";
-import {addMoneyToBudget} from "./03"
+import {addMoneyToBudget, demolishHouseOnTheStreet} from "./03"
 
 let city: CityType;
 
@@ -92,10 +92,10 @@ test("Budget should be changed for FIRE-STATION", () => {
 
 // 01. создайте в том же файле еще одну функцию, чтобы тесты прошли
 
-test.skip("Houses shoulhd be destroyed", () => {
-    demolishHouseOnTheStreet(city, "Happy street");
+test("Houses shoulhd be destroyed", () => {
+    demolishHouseOnTheStreet(city, "White street");
     //  expect(city.houses[0].id).toBe(1);
-    expect(city.houses.length).toBe(1);
+    expect(city.houses.length).toBe(2);
 });
 
 test.skip("House shoulhd be repared", () => {
