@@ -1,6 +1,6 @@
 import {beforeEach, expect, test} from 'vitest'
 import {StudentType} from "./02";
-import {addSkill} from "./03";
+import {addSkill, doesStudentLiveIn, makeStudentActive} from "./03";
 
 
 let student: StudentType
@@ -9,7 +9,7 @@ beforeEach(() => {
         id: 1,
         name: "Pridur",
         age: 32,
-        isActive: true,
+        isActive: false,
         address: {
             streetTitle: "Брянская 2",
             city: {
@@ -36,9 +36,25 @@ beforeEach(() => {
 })
 
 test("new skill should be added to student", () => {
-    expect(student.technologies.length).toBe(3)
-    addSkill(student, "sadsdfsd")
-    expect(student.technologies[3].id).toBeDefined()
-    expect(student.technologies[3].title).toBe("sadsdfsd")
-}
+        expect(student.technologies.length).toBe(3)
+        addSkill(student, "sadsdfsd")
+        expect(student.technologies[3].id).toBeDefined()
+        expect(student.technologies[3].title).toBe("sadsdfsd")
+    }
+)
+test("new skill should be made active", () => {
+        expect(student.isActive).toBe(false)
+
+        makeStudentActive(student)
+        expect(student.isActive).toBe(true)
+
+    }
+)
+test("lives in the city", () => {
+
+        let result1 = doesStudentLiveIn(student, "Moscow")
+        let result2 = doesStudentLiveIn(student, "Voronezh")
+        expect(result1).toBe(false)
+        expect(result2).toBe(true)
+    }
 )
