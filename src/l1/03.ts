@@ -1,5 +1,5 @@
 import {StudentType} from "./02";
-import {CityType, GovernmentBuildingType} from "./02_02";
+import {CityType, GovernmentBuildingType, HouseType} from "./02_02";
 
 export const sum = (a: number, b: number) =>{
     return a+b
@@ -26,4 +26,16 @@ export function addMoneyToBudget(building:GovernmentBuildingType, plusBudget:num
 }
 export function demolishHouseOnTheStreet(city:CityType, street:string){
    city.houses= city.houses.filter((h)=>h.address.street.title!==street)
+}
+export function repairHouse(house:HouseType){
+   house.repaired
+}
+export function toFireStaff(governmentBuilding:GovernmentBuildingType, staffToFire){
+   governmentBuilding.staffCount-=staffToFire
+}
+export function toHireStaff(governmentBuilding:GovernmentBuildingType, staffToHire){
+   governmentBuilding.staffCount+=staffToHire
+}
+export function createMessage(city){
+    return "Пошли все "+city.citizensNumber+" жителt "+city.title+" нахъ"
 }
