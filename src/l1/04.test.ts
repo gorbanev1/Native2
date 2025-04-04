@@ -2,9 +2,9 @@ import {beforeEach, expect, test} from 'vitest'
 test("should take olm men older 90", ()=>{
     const ages = [18,1,23,44,55,12,99];
     const predicate = (age:number)=>{
-        age<90
+       return age>90
     }
-    const oldAges = ages.filter(a=>a>90)
+    const oldAges = ages.filter(age=>age>90)
     console.log(oldAges)
     expect(oldAges.length).toBe(1)
     expect(oldAges[0]).toBe(99)
