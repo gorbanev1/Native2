@@ -26,3 +26,15 @@ test("should take cheap courses", ()=>{
     expect(cheapCourses[0].title).toBe("CSS")
     expect(cheapCourses[1].title).toBe("JS")
 })
+test("only completed tasks",()=>{
+    const tasks=[
+        {id:1, title: "Bread" , isDone: false},
+        {id:1, title: "Brsddead" , isDone: false},
+        {id:1, title: "Bresddsad" , isDone: true},
+        {id:1, title: "Brweead" , isDone: false},
+
+    ]
+    const completedTasks = tasks.filter(task=>task.isDone)
+    expect(completedTasks.length).toBe(1)
+    expect(completedTasks[0].title).toBe("Bresddsad")
+})

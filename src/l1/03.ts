@@ -39,3 +39,6 @@ export function toHireStaff(governmentBuilding:GovernmentBuildingType, staffToHi
 export function createMessage(city){
     return "Пошли все "+city.citizensNumber+" жителt "+city.title+" нахъ"
 }
+export function getBuildingsWithStaffCountGreaterThen(gBuildings, staffCount){
+    return gBuildings.filter(gBuilding=>gBuilding.staffCount>staffCount)
+}
