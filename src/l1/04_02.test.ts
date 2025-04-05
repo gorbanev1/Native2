@@ -2,13 +2,14 @@ import {beforeEach, expect, test} from 'vitest'
 import {AddressType, CityType} from "./02_02";
 import {
     addMoneyToBudget,
-    createMessage,
+    createMessage, createMessages,
     demolishHouseOnTheStreet,
-    getBuildingsWithStaffCountGreaterThen,
+    getBuildingsWithStaffCountGreaterThen, getStreetsTitlesOfGovernmentBuildings, getStreetsTitlesOfHouses,
     repairHouse,
     toFireStaff,
     toHireStaff
 } from "./03"
+import {createGreetMessages} from "./05_01";
 
 let city: CityType;
 
@@ -154,4 +155,32 @@ test('buildings with correct staff count', () => {
 
     expect(buildings.length).toBe(1);
     expect(buildings[0].type).toBe('FIRE-STATION')
+})
+
+// 01. создайте в том же файле ещё одну функцию, чтобы тесты прошли
+test('list of streets titles of government buildings', ()=> {
+    let streetsNames = getStreetsTitlesOfGovernmentBuildings(city.governmentBuildings);
+
+    expect(streetsNames.length).toBe(2);
+    expect(streetsNames[0]).toBe("Central Str");
+    expect(streetsNames[1]).toBe("South Str");
+})
+
+//02. создайте в том же файле ещё одну функцию, чтобы тесты прошли
+test('list of streets titles', ()=> {
+    let streetsNames = getStreetsTitlesOfHouses(city.houses);
+
+    expect(streetsNames.length).toBe(3);
+    expect(streetsNames[0]).toBe("White street");
+    expect(streetsNames[1]).toBe("Happy street");
+    expect(streetsNames[2]).toBe("Happy street");
+})
+
+test ("create greeting messages for streets", ()=>{
+    let messages = createMessages(city.houses)
+    expect(messages.length).toBe(3)
+    expect(messages[0]).toBe("Hello guys from White street ")
+    expect(messages[1]).toBe("Hello guys from Happy street ")
+    expect(messages[2]).toBe("Hello guys from Happy street ")
+
 })

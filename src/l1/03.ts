@@ -42,3 +42,14 @@ export function createMessage(city){
 export function getBuildingsWithStaffCountGreaterThen(gBuildings, staffCount){
     return gBuildings.filter(gBuilding=>gBuilding.staffCount>staffCount)
 }
+export function getStreetsTitlesOfGovernmentBuildings(govBuildings:Array<GovernmentBuildingType>){
+    return govBuildings.map(b=>{return b.address.street.title})
+}
+
+export function getStreetsTitlesOfHouses(houses:Array<HouseType>){
+    return houses.map(h=>h.address.street.title)
+}
+
+export function createMessages(house:Array<HouseType>){
+    return house.map(h=>`Hello guys from ${h.address.street.title.split(" ")[0]} street `)
+}
