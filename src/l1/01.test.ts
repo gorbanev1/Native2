@@ -1,4 +1,4 @@
-import {mult, splitIntoWords, sum} from "./01";
+import {mult, quote, splitIntoWords, sum} from "./01";
 import {beforeEach, expect, test } from 'vitest'
 let a= 1
 let b= 1
@@ -46,4 +46,11 @@ test("splitting into words correct",()=>{
   expect(result1[0]).toBe('hello')
     expect(result1[1]).toBe('pidor')
     // expect(result1[2]).toBe("friend")
+})
+
+test("correct fighter quote",()=>{
+    const f1='conor mcgregor'
+    const f2='georgE saint pierre'
+    expect(quote(f2)).toBe("I am not impressed by your performance.")
+    expect(quote(f1)).toBe("I'd like to take this chance to apologize.. To absolutely NOBODY!")
 })

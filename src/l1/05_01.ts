@@ -1,3 +1,5 @@
+import {HouseType} from "./02_02";
+
 export type ManType = {
     name: string;
     age: number;
@@ -49,5 +51,6 @@ const dev4 = people.map(man => (
 
 const messages=people.map(man=>`Hello ${man.name.split(" ")[0]}, Wellcome to IT-Incubator `)
 export const createGreetMessages = (people:Array<ManType>)=>{
-  return  people.map(m=>`Hello ${m.name.split(" ")[0]}, Wellcome to IT-Incubator `)
+    const callbackfn = (m) => `Hello ${m.name.split(" ")[0]}, Wellcome to IT-Incubator `;
+    return  people.map(callbackfn)
 }
