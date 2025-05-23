@@ -6,3 +6,8 @@ var user={
 function increaseAge(user){
     user.age++
 }
+export function cutHair(user:UserType, power: number){
+    const copy={...user}
+    copy.hair/=power
+    return  copy
+}

@@ -1,4 +1,5 @@
 import {beforeEach, expect, test} from 'vitest'
+import {cutHair} from "./09_01.ts";
 
 type UserType={
     name: string
@@ -8,11 +9,7 @@ type UserType={
 
 }
 
-function cutHair(user:UserType, power: number){
-   const copy={...user}
-    copy.hair/=power
-    return  copy
-}
+
 
 test('test',()=>{
     const user:UserType={
@@ -23,6 +20,7 @@ test('test',()=>{
             title: "Minsk"
         }
     }
+    const movedUser= moveUser(user, 'Kiev')
     const cutuser = cutHair(user, 2)
    // users['1'].name='Ekaterina'
     expect(cutuser.hair).toBe(16)
