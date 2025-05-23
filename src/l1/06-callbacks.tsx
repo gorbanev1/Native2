@@ -1,17 +1,29 @@
-const callback=()=>{
+const callback = () => {
     alert('hey')
 }
-window.setTimeout(callback,1000)
+window.setTimeout(callback, 1000)
 
-const User=()=>{
-    const deleteUser = ()=>{
+export const User = () => {
+    const deleteUser = () => {
         alert('user should be deleted');
     }
-    const saveUser = ()=>{
+    const saveUser = () => {
         alert('user should be deleted');
     }
-    return <div>
-        <button onClick={deleteUser}>delete</button>
-        <button onClick={saveUser}>save</button>
-    </div>
+    const buttonHandler=()=>{
+
+    }
+    const lostFocusHandler=(e)=>{
+        console.log(e.currentTarget.value)
+    }
+
+
+    return (
+        <div>
+            <textarea onBlur={lostFocusHandler}></textarea>
+            <button onClick={deleteUser}>delete</button>
+            <button onClick={saveUser}>save</button>
+
+        </div>
+    )
 }
