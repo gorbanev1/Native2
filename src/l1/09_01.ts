@@ -9,10 +9,13 @@ export type UserType = {
 
 }
 export type LaptopType = {
-    laptop: string
+    title: string
 }
 export type UserWithLaptop = UserType & {
     laptop: LaptopType
+}
+export type UserWithBooksType=UserType&{
+    books: Array<string>
 }
 
 function increaseAge(user) {
@@ -25,9 +28,38 @@ export function cutHair(user: UserType, power: number) {
     return copy
 }
 
-export function moveUser(user: UserWithLaptop, city) {
-    const movedUser = {...user}
-    return movedUser.address = {...movedUser.address,
-        title: city
+export function upgradeUserLaptop(user: UserWithLaptop, laptop) {
+    const upgrUser = {
+        ...user,
+        laptop:{
+            ...user.laptop, title:laptop
+        }
+    }
+return upgrUser
+
+}
+export function moveUser(user: UserWithLaptop&UserWithBooksType, house:number) {
+    const upgrUser = {
+        ...user,
+        address:{
+            ...user.address, house
+        }
+    }
+return upgrUser
+
+}
+export function addNewBooksToUser(user: UserWithLaptop&UserWithBooksType, books) {
+    return {
+        ...user,
+        books:[
+            ...user.books, ...books
+        ]
+    }
+}
+export function replaceBookInUser(user: UserWithLaptop&UserWithBooksType,oldBook, book) {
+    return {
+        ...user,
+        books: user.books.map(b=>b===oldBook?book:b)
+
     }
 }

@@ -1,12 +1,20 @@
 import {beforeEach, expect, test} from 'vitest'
-import {cutHair, moveUser, UserType, UserWithLaptop} from "./09_01.ts";
+import {
+    addNewBooksToUser,
+    cutHair,
+    moveUser, replaceBookInUser,
+    upgradeUserLaptop,
+    UserType,
+    UserWithBooksType,
+    UserWithLaptop
+} from "./09_01.ts";
 
 
 
 
 
 test('test',()=>{
-    const user:UserWithLaptop={
+    const user:UserWithLaptop&UserWithBooksType={
         name: 'Dimych',
         hair: 32,
         age: 32,
@@ -15,17 +23,28 @@ test('test',()=>{
             house: 12
         },
         laptop:{
-            laptop: "Lenovo"
-        }
+            title: "Lenovo"
+        },
+        books:[
+          'sadfasd','safsd','gggg'
+        ]
     }
-    const movedUser= moveUser(user, 'Kiev')
+    const macUser= upgradeUserLaptop(user, 'MacBook')
     const cutuser = cutHair(user, 2)
    // users['1'].name='Ekaterina'
-
-    expect(movedUser).not.toBe(user)
-    expect(movedUser.address).not.toBe(user.address)
-    expect(movedUser.laptop).toBe(user.laptop)
+    const movedUser=moveUser(user,99)
+    const readUser=addNewBooksToUser(user, ['sdds','sssss'])
+    expect(macUser).not.toBe(user)
+    expect(macUser.address).toBe(user.address)
+    expect(macUser.laptop).not.toBe(user.laptop)
     expect(user.hair).toBe(32)
-    expect(cutuser.address.title).toBe('Kiev')
+    expect(macUser.laptop.title).toBe('MacBook')
+    expect(movedUser.address.house).toBe(99)
+    expect(readUser.books).not.toBe(user.books)
+    expect(readUser.books.length).toBe(5)
+    expect(readUser.books[3]).toBe('sdds')
+
+    const newBookUser=replaceBookInUser(user, 'safsd', 'sddssdssssssssssss')
+    expect(newBookUser.books[1]).toBe('sddssdssssssssssss')
 
 })
