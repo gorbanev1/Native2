@@ -2,11 +2,11 @@ import {beforeEach, expect, test} from 'vitest'
 import {
     addNewBooksToUser,
     cutHair,
-    moveUser, replaceBookInUser,
+    moveUser, removeBookInUser, replaceBookInUser,
     upgradeUserLaptop,
     UserType,
     UserWithBooksType,
-    UserWithLaptop
+    UserWithLaptop, WithCompaniesType
 } from "./09_01.ts";
 
 
@@ -14,7 +14,7 @@ import {
 
 
 test('test',()=>{
-    const user:UserWithLaptop&UserWithBooksType={
+    const user:UserWithLaptop&WithCompaniesType={
         name: 'Dimych',
         hair: 32,
         age: 32,
@@ -25,9 +25,22 @@ test('test',()=>{
         laptop:{
             title: "Lenovo"
         },
-        books:[
-          'sadfasd','safsd','gggg'
-        ]
+companies:[
+    {
+        id: 1,
+        title: "hui"
+    },
+        {
+        id: 1,
+        title: "hui"
+    },
+
+        {
+        id: 1,
+        title: "hui"
+    },
+
+]
     }
     const macUser= upgradeUserLaptop(user, 'MacBook')
     const cutuser = cutHair(user, 2)
@@ -44,7 +57,10 @@ test('test',()=>{
     expect(readUser.books.length).toBe(5)
     expect(readUser.books[3]).toBe('sdds')
 
-    const newBookUser=replaceBookInUser(user, 'safsd', 'sddssdssssssssssss')
+    let newBookUser=replaceBookInUser(user, 'safsd', 'sddssdssssssssssss')
+
     expect(newBookUser.books[1]).toBe('sddssdssssssssssss')
+    newBookUser=removeBookInUser(newBookUser,'sddssdssssssssssss')
+    expect(newBookUser.books.length).toBe(2)
 
 })

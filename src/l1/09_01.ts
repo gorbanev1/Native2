@@ -17,6 +17,9 @@ export type UserWithLaptop = UserType & {
 export type UserWithBooksType=UserType&{
     books: Array<string>
 }
+export type WithCompaniesType={
+    companies: Array<{id: number, title: string}>
+}
 
 function increaseAge(user) {
     user.age++
@@ -60,6 +63,13 @@ export function replaceBookInUser(user: UserWithLaptop&UserWithBooksType,oldBook
     return {
         ...user,
         books: user.books.map(b=>b===oldBook?book:b)
+
+    }
+}
+export function removeBookInUser(user: UserWithLaptop&UserWithBooksType,book:string) {
+    return {
+        ...user,
+        books: user.books.filter(b=>b!==book)
 
     }
 }
