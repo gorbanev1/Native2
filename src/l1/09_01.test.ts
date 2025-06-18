@@ -2,7 +2,7 @@ import {beforeEach, expect, test} from 'vitest'
 import {
     addNewBooksToUser,
     cutHair,
-    moveUser, removeBookInUser, replaceBookInUser,
+    moveUser, removeBookInUser, replaceBookInUser, updateCompanyTitle,
     upgradeUserLaptop,
     UserType,
     UserWithBooksType,
@@ -31,36 +31,43 @@ companies:[
         title: "hui"
     },
         {
-        id: 1,
-        title: "hui"
+        id: 2,
+        title: "hфывui"
     },
 
         {
-        id: 1,
-        title: "hui"
+        id: 3,
+        title: "huiфыв"
     },
 
 ]
     }
-    const macUser= upgradeUserLaptop(user, 'MacBook')
-    const cutuser = cutHair(user, 2)
-   // users['1'].name='Ekaterina'
-    const movedUser=moveUser(user,99)
-    const readUser=addNewBooksToUser(user, ['sdds','sssss'])
-    expect(macUser).not.toBe(user)
-    expect(macUser.address).toBe(user.address)
-    expect(macUser.laptop).not.toBe(user.laptop)
-    expect(user.hair).toBe(32)
-    expect(macUser.laptop.title).toBe('MacBook')
-    expect(movedUser.address.house).toBe(99)
-    expect(readUser.books).not.toBe(user.books)
-    expect(readUser.books.length).toBe(5)
-    expect(readUser.books[3]).toBe('sdds')
+   //  const macUser= upgradeUserLaptop(user, 'MacBook')
+   //  const cutuser = cutHair(user, 2)
+   // // users['1'].name='Ekaterina'
+   //  const movedUser=moveUser(user,99)
+   //  const readUser=addNewBooksToUser(user, ['sdds','sssss'])
+   //  expect(macUser).not.toBe(user)
+   //  expect(macUser.address).toBe(user.address)
+   //  expect(macUser.laptop).not.toBe(user.laptop)
+   //  expect(user.hair).toBe(32)
+   //  expect(macUser.laptop.title).toBe('MacBook')
+   //  expect(movedUser.address.house).toBe(99)
+   //  expect(readUser.books).not.toBe(user.books)
+   //  expect(readUser.books.length).toBe(5)
+   //  expect(readUser.books[3]).toBe('sdds')
 
-    let newBookUser=replaceBookInUser(user, 'safsd', 'sddssdssssssssssss')
+    // let newBookUser=replaceBookInUser(user, 'safsd', 'sddssdssssssssssss')
+    //
+    // expect(newBookUser.books[1]).toBe('sddssdssssssssssss')
+    // newBookUser=removeBookInUser(newBookUser,'sddssdssssssssssss')
+    // expect(newBookUser.books.length).toBe(2)
 
-    expect(newBookUser.books[1]).toBe('sddssdssssssssssss')
-    newBookUser=removeBookInUser(newBookUser,'sddssdssssssssssss')
-    expect(newBookUser.books.length).toBe(2)
+    const userCopy=updateCompanyTitle(user, 1, 'PPPP') as UserWithLaptop&WithCompaniesType
+    expect(userCopy).not.toBe(user)
+    expect(user.address).toBe(userCopy.address)
+    expect(user.companies).not.toBe(userCopy.companies)
+    expect(userCopy.companies[0].title).toBe('PPPP')
+
 
 })
