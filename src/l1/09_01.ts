@@ -66,6 +66,13 @@ export function replaceBookInUser(user: UserWithLaptop&UserWithBooksType,oldBook
 
     }
 }
+export function updateCompanyTitle(user: WithCompaniesType, companyId, newCompanyName) {
+    return {
+        ...user,
+        companies: user.companies.map(c=>c.id===companyId?{...c,title:newCompanyName}:c)
+
+    }
+}
 export function removeBookInUser(user: UserWithLaptop&UserWithBooksType,book:string) {
     return {
         ...user,
